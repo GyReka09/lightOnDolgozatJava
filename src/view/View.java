@@ -7,6 +7,10 @@ import javax.swing.JButton;
 
 public class View extends javax.swing.JFrame {
 
+    public JButton getNewGame() {
+        return newGame;
+    }
+
     public JButton getjButton1() {
         return jButton1;
     }
