@@ -1,18 +1,48 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package view;
 
-/**
- *
- * @author GyárfásRéka(Szf_N_20
- */
+import java.awt.Color;
+import javax.swing.JButton;
+
+
 public class View extends javax.swing.JFrame {
 
-    /**
-     * Creates new form View
-     */
+    public void setjBtnColor1(Color color) {
+        this.jButton1.setBackground(color);
+    }
+
+    public void setjBtnColor2(Color color) {
+        this.jButton2.setBackground(color);
+    }
+
+    public void setjBtnColor3(Color color) {
+        this.jButton3.setBackground(color);
+    }
+
+    public void setjBtnColor4(Color color) {
+        this.jButton4.setBackground(color);
+    }
+
+    public void setjBtnColor5(Color color) {
+        this.jButton5.setBackground(color);
+    }
+
+    public void setjBtnColor6(Color color) {
+        this.jButton6.setBackground(color);
+    }
+
+    public void setjBtnColor7(Color color) {
+        this.jButton7.setBackground(color);
+    }
+
+    public void setjBtnColor8(Color color) {
+        this.jButton8.setBackground(color);
+    }
+
+    public void setjBtnColor9(Color color) {
+        this.jButton9.setBackground(color);
+    }
+
     public View() {
         initComponents();
     }
@@ -64,6 +94,11 @@ public class View extends javax.swing.JFrame {
         jButton8.setText("jButton8");
 
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("jButton5");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +213,10 @@ public class View extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

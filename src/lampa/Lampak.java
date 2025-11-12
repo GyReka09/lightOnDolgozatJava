@@ -1,13 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package lampa;
 
-/**
- *
- * @author GyárfásRéka(Szf_N_20
- */
+import static java.awt.Color.green;
+import static java.awt.Color.orange;
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Lampak {
-    
+    private List<Lampa> lampaLista;
+    private Lampa kivalasztott;
+    public Lampak(){
+        lampaLista = new ArrayList<>();
+        lampaLista= kezdoListaFeltotes();
+        
+    }
+    public ArrayList<Lampa> kezdoListaFeltotes(){
+        ArrayList<Lampa>kezdoLista = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            if(i % 2 == 0){
+                kezdoLista.add(new Lampa(orange, i));
+            }else{
+                kezdoLista.add(new Lampa(green, i));
+            }
+        }
+        return kezdoLista;
+    }
+    public void setLista(int index){
+        if(this.lampaLista.get(index).getSzin()== orange){
+            lampaLista.get(index).setSzin(green);
+        }else{
+            lampaLista.get(index).setSzin(orange);
+        }
+    }
 }
