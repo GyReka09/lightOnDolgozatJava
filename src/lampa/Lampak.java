@@ -1,10 +1,12 @@
 
 package lampa;
 
+import java.awt.Color;
 import static java.awt.Color.green;
 import static java.awt.Color.orange;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class Lampak {
@@ -38,5 +40,13 @@ public class Lampak {
     }
     public Lampa getLamp(int index){
         return lampaLista.get(index);
+    }
+     public void randomListaFeltoltes() {
+        Random rand = new Random();
+        lampaLista = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            Color szin = rand.nextBoolean() ? orange : green;
+            lampaLista.add(new Lampa(szin, i));
+        }
     }
 }

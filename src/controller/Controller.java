@@ -2,11 +2,13 @@
 package controller;
 
 import java.awt.Button;
+import static java.awt.Color.orange;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import lampa.Lampak;
 import view.View;
 
@@ -48,6 +50,7 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(0);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
             }
         });
            view.getjButton2().addActionListener(new ActionListener() {
@@ -55,6 +58,7 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(1);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
             }
         });
            view.getjButton3().addActionListener(new ActionListener() {
@@ -62,6 +66,7 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(2);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
             }
         });
             view.getjButton4().addActionListener(new ActionListener() {
@@ -69,6 +74,8 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(3);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
+
             }
         });
             view.getjButton5().addActionListener(new ActionListener() {
@@ -76,6 +83,8 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(4);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
+
             }
         });
             view.getjButton6().addActionListener(new ActionListener() {
@@ -83,6 +92,7 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(5);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
             }
         });
             view.getjButton7().addActionListener(new ActionListener() {
@@ -90,6 +100,8 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(6);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
+
             }
         });
            view.getjButton8().addActionListener(new ActionListener() {
@@ -97,6 +109,8 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(7);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
+
             }
         });
            view.getjButton9().addActionListener(new ActionListener() {
@@ -104,12 +118,15 @@ public Controller(){
             public void actionPerformed(ActionEvent e) {
                 szomszedokValtoztatasa(8);
                 gombokSzinezese();
+                nyeremenyEllenorzes();
+
             }
         });
               view.getNewGame().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                lampaLista.randomListaFeltoltes();
+                gombokSzinezese();
             }
         });
   }
@@ -131,6 +148,18 @@ public Controller(){
     public void gombokSzinezese(){
         for (int i = 0; i < lampaLista.getLista().size(); i++) {
             buttonList.get(i).setBackground(lampaLista.getLamp(i).getSzin());
+        }
+    }
+    public void nyeremenyEllenorzes(){
+        boolean nyert= true;
+        for (int i = 0; i < lampaLista.getLista().size(); i++) {
+            if(lampaLista.getLamp(i).getSzin() == orange){
+                nyert= false;
+            }
+            
+        }
+        if(nyert){
+            JOptionPane.showMessageDialog(view, "grat nyertél!");
         }
     }
     
