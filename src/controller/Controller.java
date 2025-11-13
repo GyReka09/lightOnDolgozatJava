@@ -29,7 +29,6 @@ public Controller(){
     this.lampaLista = new Lampak();
     this.view = new View();
     btnListener();
-    run();
     this.buttonList = Arrays.asList(
         view.getjButton1(),
         view.getjButton2(),
@@ -41,6 +40,7 @@ public Controller(){
         view.getjButton8(),
         view.getjButton9()
     );
+    run();
     gombokSzinezese();
    
 }
@@ -170,6 +170,21 @@ public void mentes() {
         }
     } catch (IOException e) {
         JOptionPane.showMessageDialog(view, "Hiba a mentés során: " + e.getMessage());
+    }
+}
+public void randomEllenorzes(){
+    int grn = 0;
+    int orng = 0;
+    for (int i = 0; i < lampaLista.getLista().size(); i++) {
+        if(lampaLista.getLamp(i).getSzin() == orange){
+            orng +=1;
+        }if(lampaLista.getLamp(i).getSzin() == green){
+            grn +=1;
+        }
+        
+    }
+    if(grn == 0 || orng == 0){
+        lampaLista.randomListaFeltoltes();
     }
 }
 

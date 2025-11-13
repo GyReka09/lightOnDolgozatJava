@@ -48,5 +48,22 @@ public class Lampak {
             Color szin = rand.nextBoolean() ? orange : green;
             lampaLista.add(new Lampa(szin, i));
         }
+        randomEllenorzes();
     }
+     
+    public void randomEllenorzes(){
+    int grn = 0;
+    int orng = 0;
+    for (int i = 0; i < lampaLista.size(); i++) {
+        if(lampaLista.get(i).getSzin() == orange){
+            orng +=1;
+        }
+        if(lampaLista.get(i).getSzin() == green){
+            grn +=1;
+        }
+    }
+    if(grn == 0 || orng == 0){
+        randomListaFeltoltes();
+    }
+}
 }
