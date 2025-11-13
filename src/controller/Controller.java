@@ -2,9 +2,16 @@
 package controller;
 
 import java.awt.Button;
+import java.awt.Color;
+import static java.awt.Color.green;
 import static java.awt.Color.orange;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JButton;
@@ -129,7 +136,71 @@ public Controller(){
                 gombokSzinezese();
             }
         });
+              view.getElozoAllapot().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                elozoAllapotBetoltes();
+                gombokSzinezese();
+            }
+        });
+              view.getKilepesGomb().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                kilepes();
+            }
+        });  
+              view.getMentesGomb().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mentes();
+            }
+        });
   }
+public void mentes() {
+    try (PrintWriter pw = new PrintWriter(new FileWriter("allapot.txt"))) {
+        for (int i = 0; i < lampaLista.getLista().size(); i++) {
+            Color szin = lampaLista.getLamp(i).getSzin();
+            if (szin.equals(orange)) {
+                pw.println("orange");
+            } else if (szin.equals(green)) {
+                pw.println("green");
+            } else {
+                pw.println("unknown");
+            }
+        }
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(view, "Hiba a mentés során: " + e.getMessage());
+    }
+}
+
+  public void kilepes() {
+    int valasz = JOptionPane.showConfirmDialog(
+            view,
+            "Biztos ki akarsz lépni?",
+            "Kilépés megerősítése",
+            JOptionPane.YES_NO_OPTION
+    );
+
+    if (valasz == JOptionPane.YES_OPTION) {
+        System.exit(0);
+    }
+}
+  public void elozoAllapotBetoltes() {
+    try (BufferedReader br = new BufferedReader(new FileReader("allapot.txt"))) {
+        String sor;
+        int index = 0;
+        while ((sor = br.readLine()) != null && index < lampaLista.getLista().size()) {
+            if (sor.equals("orange")) {
+                lampaLista.getLamp(index).setSzin(orange);
+            } else if (sor.equals("green")) {
+                lampaLista.getLamp(index).setSzin(green);
+            }
+            index++;
+        }
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(view, "Hiba a betöltés során: " + e.getMessage());
+    }
+}
     public void szomszedokValtoztatasa(int id) {
     lampaLista.setLista(id);
     if (id % 3 != 0) {
