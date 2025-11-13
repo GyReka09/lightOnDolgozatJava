@@ -33,4 +33,10 @@ public class Lampak {
             lampaLista.get(index).setSzin(orange);
         }
     }
+    public ArrayList<Lampa> getLista(){
+        return (ArrayList<Lampa>) this.lampaLista;
+    }
+    public Lampa getLamp(int index){
+        return lampaLista.get(index);
+    }
 }
